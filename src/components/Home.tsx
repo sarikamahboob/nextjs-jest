@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <h1>Home</h1>
       <p data-testid="desc">This is my description</p>
-      <button onClick={() => router.push("myroute")}>
+      <button onClick={() => router.push("myroute")} data-testid="nav-button">
         Navigate to my route
       </button>
     </div>

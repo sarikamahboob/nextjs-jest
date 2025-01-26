@@ -10,7 +10,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test-notes": "npx jest NotesForm.test.tsx",
-    "test-todos": "npx jest TodoAndPhotoList.test.tsx"
+    "test-todos": "npx jest TodoAndPhotoList.test.tsx",
+    "test-home": "npx jest Home.test.tsx",
+    "test-about": "npx jest About.test.tsx"
   },
   "dependencies": {
     "next": "15.1.6",

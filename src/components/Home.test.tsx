@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import Home from './Home';
 import { useRouter } from 'next/navigation';
+import Home from './Home';
 
 
 function sum(a: number, b: number) {
@@ -102,3 +102,26 @@ test('should navigate to "myroute" when button is clicked', () => {
   expect(mockPush).toHaveBeenCalledWith("myroute");
   useRouterMock.mockRestore();
 })
+
+// Here is the unit test code for Home.test.tsx:
+
+jest.mock('next/navigation', () => ({
+  useRouter: jest.fn()
+}));
+
+describe('Home Component', () => {
+  const mockPush = jest.fn();
+  
+  beforeEach(() => {
+    (useRouter as jest.Mock).mockImplementation(() => ({
+      push: mockPush
+    }));
+  });
+  
+  it('navigates to correct route when button is clicked', () => {
+    render(<Home />);
+    const button = screen.getByTestId('nav-button');
+    fireEvent.click(button);
+    expect(mockPush).toHaveBeenCalledWith('myroute');
+  });
+});
